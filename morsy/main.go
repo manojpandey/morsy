@@ -82,23 +82,7 @@ func reversedMap(original_map map[string]string) map[string]string {
     return reversed_map
 }
 
-func morseValidate(text string) bool {
-    matched, _ := regexp.MatchString("^[\\/.\\-\\s]*$", text)
-    if matched {
-        splitted := strings.Split(text, " ")
-        fmt.Println(splitted)
-        for i:=0; i< len(splitted); i++ {
-            if _, ok := morseToAsciiMap[splitted[i]]; ! ok {
-                fmt.Println("Bad morse string encountered")
-                return false
-            }
-        }
-        return true
-    } else {
-        return false
-    }
-}
-
+// Mehod for morse to ascii conversion
 func convertMorseToAscii (input string) string {
     splitted := strings.Split(input, " ")
     var result string = ""
@@ -113,6 +97,7 @@ func convertMorseToAscii (input string) string {
     return result
 }
 
+// Method for ascii to morse conversion
 func convertAsciiToMorse (input string) string {
     var result string = ""
     for i := 0; i < len(input); i++ {
